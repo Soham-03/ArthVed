@@ -380,7 +380,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                             ),
                             onClick = {
 //                            listOfClusters = ArrayList()
-                                println("Body: "+requestBodyUpdated)
+                                println("Updated Body: "+requestBodyUpdated)
 
                                 coroutineScope.launch {
                                     val response = client.post(urlString = "https://assetallocate.onrender.com/weights") {
@@ -578,7 +578,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                             modifier = Modifier.size(64.dp)
                         ){
                             Text(
-                                ((percentage / 100)*(cluster.Weights).toDouble()).toString()+" %",
+                                (percentage*100).toFloat().toString()+" %",
                                 color = Color.Black,
                                 modifier = Modifier.padding(8.dp).align(Alignment.Center)
                             )
@@ -607,7 +607,6 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                 withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.White, fontSize = 18.sp)) {
                     append(matchResult.groups[1]?.value ?: "")  // groups[1] is the text inside ** **
                 }
-
                 lastIndex = endIndex + 1
             }
 

@@ -218,7 +218,7 @@ class FinalDetailsScreen(val periodOfInvestment:Int ,val ROI:Float , val amountI
                         verticalArrangement = Arrangement.Center,
                     ){
                         Text(
-                            text = "${amountInvestedMonthly*periodOfInvestment} ₹",
+                            text = "${amountInvestedMonthly*periodOfInvestment*12} ₹",
                             color = green,
                             fontSize = 24.sp,
                             fontWeight = FontWeight.SemiBold,
@@ -243,12 +243,12 @@ class FinalDetailsScreen(val periodOfInvestment:Int ,val ROI:Float , val amountI
 
                     SharedObj.peroidOfInvestment = periodOfInvestment
                     SharedObj.ROI = ROI
-                    SharedObj.principalAmount = amountInvestedMonthly*periodOfInvestment
+                    SharedObj.principalAmount = amountInvestedMonthly*periodOfInvestment*12
                     SharedObj.risk = risk
                     SharedObj.currentAge = currentAge
 
 //                    Navigator(HomeScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment))
-                    navigator.push(HomeScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment, age = currentAge))
+                    navigator.push(HomeScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment*12, age = currentAge))
 //                          navigator.push(ClustersScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment))
                 },
                 content = {

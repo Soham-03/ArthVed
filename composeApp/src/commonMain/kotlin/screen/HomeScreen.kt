@@ -113,7 +113,6 @@ data class HomeScreen(val r:Int, val pOI: Int, val roi:Float, val pAmount: Float
                         TabNavigationItem(TabA)
                         TabNavigationItem(TabB)
                         TabNavigationItem(TabC)
-                        TabNavigationItem(TabD)
                     }
                 }
             )

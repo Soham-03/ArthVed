@@ -451,7 +451,8 @@ class PlaygroundScreen: Screen {
                                                 },
                                                 colors = CheckboxDefaults.colors(
                                                     checkedColor = green,
-                                                    uncheckedColor = Color.White
+                                                    uncheckedColor = Color.White,
+                                                    checkmarkColor = Color.Black
                                                 )
                                             )
                                             Text(checkboxLabel, color = lightBlue)

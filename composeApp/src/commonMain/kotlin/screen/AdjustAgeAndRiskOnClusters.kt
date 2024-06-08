@@ -452,7 +452,6 @@ class AdjustAgeAndRiskOnClusters: Screen {
                         verticalArrangement = Arrangement.spacedBy(10.dp),
                         modifier = Modifier
                             .height(300.dp)
-                            .padding(horizontal = 24.dp),
                     ){
                         for(cluster in listOfClusters.indices){
                             item {
@@ -602,7 +601,7 @@ class AdjustAgeAndRiskOnClusters: Screen {
                             modifier = Modifier.size(64.dp)
                         ){
                             Text(
-                                ((percentage / 100)*(cluster.Weights).toDouble()).toString()+" %",
+                                (percentage*100).toFloat().toString()+" %",
                                 color = Color.Black,
                                 modifier = Modifier.padding(8.dp).align(Alignment.Center)
                             )

@@ -309,7 +309,7 @@ data class SelectedClusterSocksScreen(
                 verticalArrangement = Arrangement.SpaceEvenly
             ){
                 Text(text = key, color = Color.White, fontSize = 20.sp)
-                Text(text = ((value.toFloat()*100)/principalAmount).toInt().toString()+" %", color =  Color(0xFFC2F63F), fontSize = 20.sp)
+                Text(text = ((value.toFloat()*100)/principalAmount).toString()+" %", color =  Color(0xFFC2F63F), fontSize = 20.sp)
             }
         }
     }
