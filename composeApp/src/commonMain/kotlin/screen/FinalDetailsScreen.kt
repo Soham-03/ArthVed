@@ -246,6 +246,7 @@ class FinalDetailsScreen(val periodOfInvestment:Int ,val ROI:Float , val amountI
                     SharedObj.principalAmount = amountInvestedMonthly*periodOfInvestment*12
                     SharedObj.risk = risk
                     SharedObj.currentAge = currentAge
+                    SharedObj.amountInvestedMonthly = amountInvestedMonthly.toInt()
 
 //                    Navigator(HomeScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment))
                     navigator.push(HomeScreen(risk, periodOfInvestment, ROI, amountInvestedMonthly*periodOfInvestment*12, age = currentAge))

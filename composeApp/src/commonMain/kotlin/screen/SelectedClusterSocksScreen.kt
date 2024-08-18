@@ -75,7 +75,6 @@ data class SelectedClusterSocksScreen(
     data class ResultsContainer(
         val results: List<Result>
     )
-
     @Serializable
     data class Result(
         @SerialName("Annual Return") val expectedAnnualReturn: Double,
@@ -128,7 +127,7 @@ data class SelectedClusterSocksScreen(
         val requestBody = ClustersScreen.InvestmentRequest(
             lifestyle_risk = risk,
             expected_annual_roi = ROI.toDouble(),
-            principal_amount = principalAmount.toInt(),
+            principal_amount = SharedObj.amountInvestedMonthly,
             current_age = 20,
             sim_no = 1000
         )
@@ -309,7 +308,7 @@ data class SelectedClusterSocksScreen(
                 verticalArrangement = Arrangement.SpaceEvenly
             ){
                 Text(text = key, color = Color.White, fontSize = 20.sp)
-                Text(text = ((value.toFloat()*100)/principalAmount).toString()+" %", color =  Color(0xFFC2F63F), fontSize = 20.sp)
+                Text(text = ((value.toFloat()*100)/SharedObj.amountInvestedMonthly).toString()+" %", color =  Color(0xFFC2F63F), fontSize = 20.sp)
             }
         }
     }

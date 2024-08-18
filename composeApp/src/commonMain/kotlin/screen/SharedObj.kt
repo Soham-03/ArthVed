@@ -6,4 +6,5 @@ object SharedObj {
     var ROI:Float = 0f
     var principalAmount: Float = 0f
     var currentAge: Int = 0
+    var amountInvestedMonthly: Int = 0
 }

@@ -181,7 +181,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
             val requestBody = InvestmentRequest(
                 lifestyle_risk = risk,
                 expected_annual_roi = ROI.toDouble(),
-                principal_amount = principalAmount.toInt(),
+                principal_amount = SharedObj.amountInvestedMonthly.toInt(),
                 current_age = age
             )
             val client = HttpClient(CIO) {
@@ -267,7 +267,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                     testPieChartData.add(
                         PieChartData(
                             partName = cluster.Symbols,
-                            data = (cluster.Weights / principalAmount.toDouble()),
+                            data = (cluster.Weights / SharedObj.amountInvestedMonthly.toDouble()),
                             color = listOfColors[i]
                         )
                     )
@@ -434,7 +434,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                             item {
                                 PortfolioClusterSingleRow(
                                     colorList = listOfColors,
-                                    percentage = (listOfClusters[cluster].Weights/principalAmount.toDouble()),
+                                    percentage = (listOfClusters[cluster].Weights*100/SharedObj.amountInvestedMonthly.toDouble()),
                                     cluster = listOfClusters[cluster],
                                     index = cluster
                                 )
@@ -486,7 +486,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                                         Text("Total", color = Color.White, fontSize = 20.sp)
                                     }
                                     Text("Total", fontWeight = FontWeight.Light, color = Color.White)
-                                    Text("₹ ${principalAmount}", color = Color(0xFFC2F63F), fontSize = 20.sp)
+                                    Text("₹ ${SharedObj.amountInvestedMonthly}", color = Color(0xFFC2F63F), fontSize = 20.sp)
                                 }
                             }
                         }
@@ -578,7 +578,7 @@ data class ClustersScreen(val risk:Int, val peroidOfInvestment: Int, val ROI:Flo
                             modifier = Modifier.size(64.dp)
                         ){
                             Text(
-                                (percentage*100).toFloat().toString()+" %",
+                                ((cluster.Weights.toFloat())*100/SharedObj.amountInvestedMonthly).toString() +" %",
                                 color = Color.Black,
                                 modifier = Modifier.padding(8.dp).align(Alignment.Center)
                             )
